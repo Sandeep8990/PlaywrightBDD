@@ -16,11 +16,10 @@ class LoginPage {
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
+  async getPageTitle(){
+      return await this.page.getPageTitle();
+  }
 }
-async getPageTitle(){
-    return await this.page.getPageTitle();
-}
-
 
 
 module.exports = { LoginPage };
