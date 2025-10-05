@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+/workspace.xml/
+/node_modules/
+/.idea/
+/.features-gen/
+/cucumber-report/
+/test-results/
+/playwright-report/

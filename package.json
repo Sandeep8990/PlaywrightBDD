@@ -1,0 +1,15 @@
+{
+  "name": "playwright-bdd-pom-framework",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "npx playwright test",
+    "bdd:gen": "bdd-gen",
+    "run": "npx bddgen && npx playwright test --headed"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.4",
+    "@playwright/test": "^1.55.0",
+    "playwright-bdd": "^8.4.1"
+  }
+}
