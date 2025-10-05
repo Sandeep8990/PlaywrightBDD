@@ -8,7 +8,7 @@ class LoginPage {
 
   async goto() {
     // change to your app's URL
-    await this.page.goto('https://www.wikipedia.org/');
+    await this.page.goto('https://playwright.dev/');
   }
 
   async login(username, password) {
@@ -17,5 +17,10 @@ class LoginPage {
     await this.loginButton.click();
   }
 }
+async getPageTitle(){
+    return await this.page.getPageTitle();
+}
+
+
 
 module.exports = { LoginPage };
