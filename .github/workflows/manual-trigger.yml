@@ -13,7 +13,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
-        run: npx playwright install chromium firefox
+        run: |
+          npx playwright install-deps
+          npx playwright install chromium firefox
       - name: Generate BDD
         run: npx bddgen
       - name: Run Playwright tests
