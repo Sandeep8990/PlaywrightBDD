@@ -1,6 +1,16 @@
 name: Manual Trigger
 on:
   workflow_dispatch:
+    inputs:
+      tags:
+        description: Tags to be run
+        required: false
+        default: ''
+      env:
+        description: Environment to be run
+        required: false
+        default: staging
+
 jobs:
   test:
     timeout-minutes: 60
@@ -19,7 +29,13 @@ jobs:
       - name: Generate BDD
         run: npx bddgen
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          # Run with tags if provided
+          if [ "${{ github.event.inputs.tags }}" != "" ]; then
+            npx playwright test --grep "${{ github.event.inputs.tags }}"
+          else
+            npx playwright test --reporter=html,line
+          fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
