@@ -17,7 +17,7 @@ class LoginPage {
     await this.loginButton.click();
   }
   async getPageTitle(){
-      return await this.page.getPageTitle();
+      return await this.page.title();
   }
 }
 

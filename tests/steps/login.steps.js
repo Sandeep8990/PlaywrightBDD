@@ -1,7 +1,6 @@
-
+import { expect } from '@playwright/test';
 import { createBdd } from 'playwright-bdd';
 const {test} = require('../../support/fixtures.js')
-
 const { Given,When, Then } = createBdd(test);
 
 Given('I open the login page', async ({ loginPage }) => {
@@ -14,5 +13,5 @@ When('I login with username {string} and password {string}', async ({ loginPage 
 });
 
 Then('I should see the homepage', async ({ page }) => {
-  await expect(page.locator('h1')).toHaveText('Playwright enables reliable end-to-end testing for modern web apps');
+  await expect(page.locator('h1')).toHaveText('Playwright enables reliable end-to-end testing for modern web apps.');
 });
